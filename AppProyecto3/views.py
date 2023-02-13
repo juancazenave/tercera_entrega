@@ -4,11 +4,14 @@ from django.http import HttpResponse
 from AppProyecto3.models import Curso
 
 # Create your views here.
-def curso(request):
-    curso = Curso(nombre='Python',camada='2345')
-    curso.save()
-    respuesta = f'Curso: {curso.nombre}, Camada: {curso.camada}'
-    return HttpResponse(respuesta)
+# def curso(request):
+#     curso = Curso(nombre='Python',camada='2345')
+#     curso.save()
+#     respuesta = f'Curso: {curso.nombre}, Camada: {curso.camada}'
+#     return HttpResponse(respuesta)
+
+def padre(request):
+    return render(request, "AppProyecto3/padre.html")
 
 def inicio(request):
     return render(request, "AppProyecto3/inicio.html")
