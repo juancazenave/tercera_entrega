@@ -25,6 +25,7 @@
                 <a class="navbar-brand" href="{% url 'estudiantes' %}">Estudiantes</a>
                 <a class="navbar-brand" href="{% url 'profesores' %}">Profesores</a>
                 <a class="btn btn-primary" href="{% url 'cursos' %}">Cursos</a>
+                <a class="btn btn-primary" href="{% url 'buscar-camada' %}">Buscar Camada</a>
             </div>
         </nav>
         <!-- Masthead-->
@@ -79,6 +80,10 @@
         {% block contenido %}
             
         {% endblock contenido %}
+
+        {% block contenido2 %}
+            
+        {% endblock contenido2 %}
         <!-- Footer-->
         <footer class="footer bg-light">
             <div class="container">

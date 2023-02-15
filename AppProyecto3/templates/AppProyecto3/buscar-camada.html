@@ -1,0 +1,13 @@
+{% extends 'AppProyecto3/padre.html' %}
+
+{% block contenido2 %}
+<body>
+    <form action="{% url 'buscar' %}" method="GET">
+    {% csrf_token %}
+    <h1>Ingrese el numero de Camada</h1>
+        <input type="number" name="camada" id="camada">
+        <input type="submit" value="Buscar">
+    </form>
+    
+</body>
+{% endblock contenido2 %}

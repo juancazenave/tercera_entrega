@@ -9,11 +9,12 @@ Formulario - Agregar Curso
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <form action="{% url 'curso-formulario' %}" method="post"></form>
-                {% csrf_token %}
+                <form action="{% url 'curso-formulario' %}" method="POST">
+                {% csrf_token %} 
                     <p>Curso: <input type="text" name="curso"></p>
                     <p>Camada: <input type="number" name="camada"></p>
                     <input type="submit" value="Enviar">
+                </form>
             </div>
         </div>
     </div>

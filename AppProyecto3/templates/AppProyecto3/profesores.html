@@ -1,7 +1,7 @@
 {% extends 'AppProyecto3/padre.html' %}
 
 {% block titulo %}
-Pagina PROFESORES
+PAGINA PROFESORES
 {% endblock titulo %}
 
 {% block contenido %}
@@ -9,7 +9,14 @@ Pagina PROFESORES
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Bienvenido a PROFESORES</h1>
+                <form action="{% url 'profesores' %}" method="POST">
+                {% csrf_token %} 
+                    <p>Nombre: <input type="text" name="nombre"></p>
+                    <p>Apellido: <input type="text" name="apellido"></p>
+                    <p>E-mail: <input type="text" name="email"></p>
+                    <p>Profesion: <input type="text" name="profesion"></p>
+                    <input type="submit" value="Enviar">
+                </form>
             </div>
         </div>
     </div>

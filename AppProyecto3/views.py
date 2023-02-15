@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-from AppProyecto3.models import Curso
+from AppProyecto3.models import *
 
 # Create your views here.
 # def curso(request):
@@ -17,15 +17,33 @@ def inicio(request):
     return render(request, "AppProyecto3/inicio.html")
 
 def cursos(request):
+    
+    if request.method == 'POST':
+        nuevo_curso = Curso(nombre=request.POST['curso'], camada=request.POST['camada'])
+        nuevo_curso.save()
+        return render(request, "AppProyecto3/inicio.html")
+
     return render(request, "AppProyecto3/cursos.html")
 
 def entregables(request):
     return render(request, "AppProyecto3/entregables.html")
 
 def estudiantes(request):
+
+    if request.method == 'POST':
+        nuevo_est = Estudiante(nombre=request.POST['nombre'], apellido=request.POST['apellido'], email=request.POST['email'])
+        nuevo_est.save()
+        return render(request, "AppProyecto3/inicio.html")
+
     return render(request, "AppProyecto3/estudiantes.html")
 
 def profesores(request):
+
+    if request.method == 'POST':
+        nuevo_est = Profesor(nombre=request.POST['nombre'], apellido=request.POST['apellido'], email=request.POST['email'], profesion=request.POST['profesion'])
+        nuevo_est.save()
+        return render(request, "AppProyecto3/inicio.html")
+    
     return render(request, "AppProyecto3/profesores.html")
 
 def curso_formulario(request):
@@ -36,3 +54,10 @@ def curso_formulario(request):
         return render(request, "AppProyecto3/inicio.html")
 
     return render(request, "AppProyecto3/curso-formulario.html")
+
+def buscar_camada(request):
+    return render(request, "AppProyecto3/buscar-camada.html")
+
+def buscar(request):
+    respuesta = f'El numero de camada: {request.GET["camada"]} existe'
+    return HttpResponse(respuesta)

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from AppProyecto3.views import inicio, profesores, estudiantes, cursos, entregables, padre, curso_formulario
+from AppProyecto3.views import *
 
 urlpatterns = [
     path('', padre, name='padre'),
@@ -9,6 +9,8 @@ urlpatterns = [
     path('estudiantes/', estudiantes, name='estudiantes'),
     path('cursos/', cursos, name='cursos'),
     path('entregables/', entregables, name='entregables'),
-    path('curso-formulario/', curso_formulario, name='curso-formulario')
+    path('curso-formulario/', curso_formulario, name='curso-formulario'),
+    path('buscar-camada/', buscar_camada, name='buscar-camada'),
+    path('buscar/', buscar, name='buscar')
     
 ]
