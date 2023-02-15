@@ -27,3 +27,12 @@ def estudiantes(request):
 
 def profesores(request):
     return render(request, "AppProyecto3/profesores.html")
+
+def curso_formulario(request):
+
+    if request.method == 'POST':
+        nuevo_curso = Curso(nombre=request.POST['curso'], camada=request.POST['camada'])
+        nuevo_curso.save()
+        return render(request, "AppProyecto3/inicio.html")
+
+    return render(request, "AppProyecto3/curso-formulario.html")
