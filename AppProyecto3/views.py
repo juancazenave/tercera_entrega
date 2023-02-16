@@ -59,5 +59,16 @@ def buscar_camada(request):
     return render(request, "AppProyecto3/buscar-camada.html")
 
 def buscar(request):
-    respuesta = f'El numero de camada: {request.GET["camada"]} existe'
+    
+    if request.GET['camada']:
+        mi_camada = request.GET['camada']
+        cursos = Curso.objects.filter(camada__icontains=mi_camada)
+
+        return render(request, 'AppProyecto3/resultados-busqueda.html', {'cursos': cursos, 'camada': mi_camada})
+
+    else:
+        respuesta = 'No se encontro esa camada'
+    
+    return HttpResponse(respuesta)
+
     return HttpResponse(respuesta)
